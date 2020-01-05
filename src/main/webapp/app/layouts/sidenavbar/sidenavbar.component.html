@@ -1,0 +1,28 @@
+<mat-sidenav-container autosize mat-typography style="margin: 0 !important;">
+
+    <mat-sidenav #sidenav [class.mat-elevation-z4]="true" [opened]="isExpanded" mode="push">
+
+        <mat-expansion-panel (opened)="isExpanded" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+                <span *ngIf="isExpanded">Hello world </span>
+            </mat-expansion-panel-header>
+            <mat-panel-title mat-list-item>
+                <mat-icon mat-list-icon>supervised_user_circle</mat-icon>
+                <span *ngIf="isExpanded" class="ml-3"  mat-line>Company Management</span>
+            </mat-panel-title>
+            <mat-list-item   routerLink="admin/user-management"
+                             routerLinkActive="active">
+                <mat-icon mat-list-icon>person_add</mat-icon>
+                <span *ngIf="isExpanded"   mat-line>Add User</span>
+            </mat-list-item>
+        </mat-expansion-panel>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="container-fluid">
+            <div class="card jh-card mat-elevation-z18 mb-3" style="min-height: 80vh;">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
